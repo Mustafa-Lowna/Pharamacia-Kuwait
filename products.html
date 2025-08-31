@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Card</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="img/Pharamacia Kuwait Logo.jpg"
+      type="Pharamacia Kuwait Company Logo"
+    />
+    <style>
+      :root {
+        --primary-blue: #1a6db1;
+        --secondary-blue: #3498db;
+        --accent-green: #2ecc71;
+        --dark-text: #2c3e50;
+        --light-text: #7f8c8d;
+        --white: #ffffff;
+        --light-bg: #f8f9fa;
+      }
+
+      body {
+        position: relative;
+        font-family: "arial", sans-serif;
+        overflow-x: hidden; /* optional */
+      }
+      .btn-primary {
+        background-color: var(--primary-blue);
+        border-color: var(--primary-blue);
+        padding: 10px 24px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-size: 16px;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-blue);
+        border-color: var(--secondary-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-success {
+        background-color: var(--accent-green);
+        border-color: var(--accent-green);
+        padding: 10px 24px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-size: 16px;
+      }
+
+      .btn-success:hover {
+        background-color: #27ae60;
+        border-color: #27ae60;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .product-card {
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        padding: 20px;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-img {
+        height: 180px;
+        background-color: #e0f0ff;
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 100px;
+      }
+      .product-img img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        display: block;
+      }
+      .product-img {
+        margin-bottom: 65px; /* For mobile */
+        position: static; /* Remove absolute/relative if present */
+      }
+
+      .card-body {
+        position: static; /* Ensure no overlay */
+        background: transparent; /* Or white if needed */
+        margin-top: 0; /* Give margin only if badly stuck */
+      }
+      
+
+      .product-img i {
+        font-size: 48px;
+        color: var(--primary-blue);
+      }
+
+      .product-price {
+        font-weight: 700;
+        color: var(--primary-blue);
+        font-size: 18px;
+      }
+
+      .card-body h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      .card-body p {
+        font-size: 15px;
+        color: var(--light-text);
+      }
+      .section-title {
+        position: relative;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+        padding-bottom: 12px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3px;
+        background-color: #1a6db1; /* Blue color */
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Values Section -->
+    <section id="products" class="py-3 bg-light">
+      <div class="container py-5">
+        <h2 class="section-title">All Products</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Cardiovascular Medications.jpg"
+                  alt="Cardiovascular Medications"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Cardiovascular Medications</h3>
+                <p class="card-text">
+                  Premium quality cardiovascular medications for hypertension
+                  and heart conditions, formulated to deliver effective and
+                  reliable care for improved heart health and well-being.
+                </p>
+                <p class="product-price">From $24.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Vaccines & Immunizations.jpg"
+                  alt="Vaccines & Immunizations"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Vaccines & Immunizations</h3>
+                <p class="card-text">
+                  WHO-approved vaccines featuring advanced
+                  temperature-controlled delivery systems ensure optimal vaccine
+                  stability and potency across the supply chain.
+                </p>
+                <p class="product-price">From $39.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Wound Care Supplies.jpg"
+                  alt="Wound Care Supplies"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Wound Care Supplies</h3>
+                <p class="card-text">
+                  Premium wound care supplies including sterile dressings,
+                  bandages, and advanced wound care products designed to promote
+                  optimal healing and prevent infection.
+                </p>
+                <p class="product-price">From $12.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- New products start -->
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Diabetes Care.jpg"
+                  alt="Diabetes Care"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Diabetes Care</h3>
+                <p class="card-text">
+                  Comprehensive diabetes care supplies and medications designed
+                  for accurate blood sugar management, improved health outcomes,
+                  and enhanced quality of life.
+                </p>
+                <p class="product-price">From $29.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Mental Health Aids.jpg"
+                  alt="Mental Health Aids"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Mental Health Aids</h3>
+                <p class="card-text">
+                  Supportive aids and supplements designed to promote mental
+                  wellness, enhance emotional stability, and support overall
+                  psychological health.
+                </p>
+                <p class="product-price">From $34.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Nutrition Supplements.jpg"
+                  alt="Nutrition Supplements"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nutrition Supplements</h3>
+                <p class="card-text">
+                  High-quality vitamins, minerals, and essential nutrients
+                  formulated to support balanced nutrition, enhance overall
+                  health, and promote wellness.
+                </p>
+                <p class="product-price">From $19.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Antibiotics.jpg"
+                  alt="Antibiotics"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Antibiotics</h3>
+                <p class="card-text">
+                  Effective antibiotic medications for a broad range of
+                  bacterial infections with trusted formulations.
+                </p>
+                <p class="product-price">From $22.50</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Pain Relief.jpg"
+                  alt="Pain Relief & Anti-inflammatory"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Pain Relief & Anti-inflammatory</h3>
+                <p class="card-text">
+                  Trusted pain relief medications and anti-inflammatory products
+                  for quick and effective comfort.
+                </p>
+                <p class="product-price">From $15.75</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Respiratory Care.jpg"
+                  alt="Respiratory Care Products"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Respiratory Care Products</h3>
+                <p class="card-text">
+                  Quality respiratory care products to assist breathing and lung
+                  health, including inhalers and nebulizers.
+                </p>
+                <p class="product-price">From $28.00</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Dermatology Products.jpg"
+                  alt="Dermatology Products"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Dermatology Products</h3>
+                <p class="card-text">
+                  Specialized skin care products for treatment and management of
+                  dermatological conditions.
+                </p>
+                <p class="product-price">From $18.00</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Oral Care Products.jpg"
+                  alt="Oral Care Products"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Oral Care Products</h3>
+                <p class="card-text">
+                  Comprehensive oral hygiene products including toothpaste,
+                  mouthwash, and dental accessories.
+                </p>
+                <p class="product-price">From $14.50</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-card p-3">
+              <div class="product-img">
+                <img
+                  src="img/Baby Care Products.jpg"
+                  alt="Baby Care Products"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Baby Care Products</h3>
+                <p class="card-text">
+                  Safe and gentle baby care essentials, including lotions,
+                  powders, and feeding accessories.
+                </p>
+                <p class="product-price">From $12.99</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- New products end -->
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

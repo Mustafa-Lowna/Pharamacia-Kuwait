@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Place Your Medicine Order</title>
+    <link
+      rel="shortcut icon"
+      href="img/Pharamacia Kuwait Logo.jpg"
+      type="Pharamacia Kuwait Company Logo"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+      }
+
+      /* Blurred Background Image */
+      .bg-blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(img/Order\ Page\ Background\ Image.jpg) center
+          center/cover no-repeat fixed;
+        filter: blur(15px) brightness(1.1);
+        z-index: 0;
+      }
+
+      /* Form Container */
+      .form-container {
+        position: relative;
+        z-index: 1;
+        max-width: 440px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 38px 32px 28px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      h1 {
+        text-align: center;
+        color: #1a6db1;
+        margin-bottom: 28px;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      label {
+        display: block;
+        margin: 14px 0 6px 0;
+        font-weight: 600;
+        color: #1b3a6e;
+        font-size: 1rem;
+      }
+
+      label sup {
+        color: #d4001a;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #bed1eb;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        color: #2b3a5b;
+        background: #fdfdff;
+        margin-bottom: 6px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #034a91;
+        box-shadow: 0 0 8px #034a9199;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #a9b9d7;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 28px;
+        background-color: #1a6db1;
+        color: white;
+        border: none;
+        padding: 14px 0;
+        border-radius: 40px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        box-shadow: 0 6px 20px #033971bb;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        letter-spacing: 0.05em;
+      }
+
+      button:hover {
+        background-color: #014881;
+        box-shadow: 0 8px 26px #022f6299;
+      }
+
+      @media (max-width: 600px) {
+        .form-container {
+          margin: 30px 15px;
+          padding: 28px 20px 20px;
+          border-radius: 12px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+        }
+
+        label,
+        input,
+        select,
+        textarea,
+        button {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-blur"></div>
+
+    <div
+      action="https://formspree.io/f/mvgbrzgq"
+      method="POST"
+      class="form-container"
+    >
+      <h1>Medicine Order</h1>
+      <form>
+        <label for="fullName">Full Name <sup>*</sup></label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Enter your full name"
+          required
+        />
+
+        <label for="phone">Phone Number <sup>*</sup></label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Enter your contact number"
+          required
+          pattern="[0-9]{7,15}"
+          title="Please enter a valid phone number"
+        />
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email (optional)"
+        />
+
+        <label for="medicine">Select Medicine</label>
+        <select id="medicine" name="medicine" required>
+          <option value="" disabled selected>Select Medicine</option>
+          <option value="cardiovascular_medications">
+            Cardiovascular Medications
+          </option>
+          <option value="vaccines_and_immunizations">
+            Vaccines & Immunizations
+          </option>
+          <option value="wound_care_supplies">Wound Care Supplies</option>
+          <option value="diabetes_care">Diabetes Care</option>
+          <option value="mental_health_aids">Mental Health Aids</option>
+          <option value="nutrition_supplements">Nutrition Supplements</option>
+          <!-- <option value="other">Other (specify below)</option> -->
+        </select>
+
+        <label for="quantity">Quantity <sup>*</sup></label>
+        <input
+          type="text"
+          id="quantity"
+          name="quantity"
+          placeholder="Enter quantity"
+          required
+          pattern="[0-9]+"
+          title="Please enter numeric value"
+        />
+
+        <label for="address">Delivery Address <sup>*</sup></label>
+        <textarea
+          id="address"
+          name="address"
+          placeholder="Enter your full delivery address"
+          required
+        ></textarea>
+
+        <label for="notes">Additional Notes</label>
+        <textarea
+          id="notes"
+          name="notes"
+          placeholder="Specify medicine details, allergies, or special instructions"
+        ></textarea>
+
+        <button type="submit">Submit Order</button>
+      </form>
+    </div>
+  </body>
+</html>
