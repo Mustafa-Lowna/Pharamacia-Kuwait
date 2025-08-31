@@ -1,7 +1,7 @@
 :root {
   --primary-blue: #0359a9;
   --secondary-blue: #3498db;
-  --accent-green: #03c955;
+  --accent-green: #02ba4e;
   --dark-text: #2c3e50;
   --light-text: #7f8c8d;
   --white: #ffffff;
@@ -60,10 +60,10 @@ html {
   transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
+/* .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: #009879;
-}
+  color: #ff8000;
+} */
 .navbar-toggler {
   border: 1px solid #ddd;
 }
@@ -251,8 +251,8 @@ html {
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary-blue);
-  border-color: var(--secondary-blue);
+  background-color: #0074c2;
+  border-color: #0074c2;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -268,10 +268,28 @@ html {
 }
 
 .btn-success:hover {
-  background-color: #01e35f;
-  border-color: #01e35f;
+  background-color: #04d15a;
+  border-color: #04d15a;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.btn-orange {
+  background-color: #f68413;
+  border-color: #f68413;
+  padding: 10px 24px;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #ff972e;
+  border-color: #ff972e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 .btn-width {
   width: 250px;
@@ -389,11 +407,15 @@ html {
 }
 
 .testimonial-card {
-  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  background: var(--white);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  position: relative;
+  padding: 20px;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-card:before {
@@ -430,6 +452,11 @@ html {
   justify-content: center;
   align-items: flex-start;
   gap: 40px; /* Space between certificates */
+}
+.certifications-section,
+.contact-section {
+  margin-top: 60px; /* Increased vertical spacing */
+  margin-bottom: 60px;
 }
 
 .certification-logo img {
@@ -539,6 +566,16 @@ footer {
   color: var(--white);
   padding-left: 5px;
 }
+.footer-text,
+.footer-contact-info,
+.footer-quick-links a {
+  color: #cbd5e1; /* Lighter grey for better readability on dark bg */
+  transition: color 0.3s ease;
+}
+
+.footer-quick-links a:hover {
+  color: #f97316; /* Orange highlight on hover */
+}
 
 .social-icon {
   width: 36px;
@@ -555,7 +592,7 @@ footer {
 
 .social-icon:hover {
   color: #fff;
-  background-color: var(--primary-blue);
+  background-color: #f97316;
   transform: translateY(-3px);
 }
 .social-icons a {
