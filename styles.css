@@ -616,10 +616,10 @@ footer {
   color: #ffffff;
 }
 .credits a {
-  color: #ffffff;
+  color: #4da5f8;
 }
 .credits a:hover {
-  color: #4da5f8;
+  color: #63b4ff;
 }
 
 @keyframes fadeInDown {
