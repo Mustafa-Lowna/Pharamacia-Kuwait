@@ -182,11 +182,11 @@ html {
   background: #fff;
   color: #1a6db1;
   font-weight: 900;
-  font-size: 0.8rem;
+  font-size: 1rem;
   border: none;
   border-radius: 30px;
-  padding: 16px 40px;
-  margin-top: 10px;
+  padding: 10px 24px;
+  margin-top: 15px;
   cursor: pointer;
   letter-spacing: 1px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -293,28 +293,7 @@ html {
 }
 .btn-width {
   width: 250px;
-  font-size: 15px;
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  text-align: center;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.section-title:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--primary-blue);
-  border-radius: 2px;
+  font-size: 18px;
 }
 .cta-btn {
   padding: 10px 24px; /* Waisa hi jo pehle tha */
@@ -354,6 +333,26 @@ html {
   }
 }
 
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+}
 .value-card {
   text-align: center;
   padding: 24px;
