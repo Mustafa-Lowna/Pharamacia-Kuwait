@@ -274,8 +274,8 @@ html {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .btn-orange {
-  background-color: #f68413;
-  border-color: #f68413;
+  background-color: #f98a1b;
+  border-color: #f98a1b;
   padding: 10px 24px;
   font-weight: 600;
   border-radius: 30px;
@@ -285,8 +285,8 @@ html {
 }
 
 .btn-orange:hover {
-  background-color: #ff972e;
-  border-color: #ff972e;
+  background-color: #ff9830;
+  border-color: #ff9830;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   color: white;
@@ -315,6 +315,43 @@ html {
   height: 3px;
   background: var(--primary-blue);
   border-radius: 2px;
+}
+.cta-btn {
+  padding: 10px 24px; /* Waisa hi jo pehle tha */
+  font-size: 16px; /* Pehle jaisa font size */
+  border-radius: 40px; /* Rounded corners same */
+  font-weight: 700; /* Boldness same */
+  display: inline-block;
+  margin: 0 10px; /* Button ke beech gap */
+  color: #fff;
+  text-decoration: none;
+  /* Animation properties yahan lagayen */
+  animation: scaleInBoth 0.6s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+}
+
+/* Stagger the animation for cool effect (optional) */
+.cta-btn:nth-child(1) {
+  background: #02ba4e;
+  animation-delay: 0.1s;
+}
+.cta-btn:nth-child(2) {
+  background: #1a6db1;
+  animation-delay: 0.25s;
+}
+.cta-btn:nth-child(3) {
+  background: #f68413;
+  animation-delay: 0.4s;
+}
+
+@keyframes scaleInBoth {
+  from {
+    opacity: 0;
+    transform: scaleX(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 .value-card {
@@ -617,6 +654,7 @@ footer {
 }
 .credits a {
   color: #4da5f8;
+  text-decoration: none;
 }
 .credits a:hover {
   color: #63b4ff;
