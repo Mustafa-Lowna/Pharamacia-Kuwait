@@ -704,8 +704,9 @@ footer {
   .text-muted,
   .nav-link,
   .btn-primary,
-  .btn-success {
-    font-size: 14px;
+  .btn-success
+  .btn-orange {
+    font-size: 16px;
   }
 
   h5 {
