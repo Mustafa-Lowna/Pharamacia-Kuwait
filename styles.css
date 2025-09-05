@@ -202,14 +202,14 @@ html {
 
 @media (max-width: 600px) {
   .about-section {
-    padding: 20px 8px;
+    padding: 60px 25px;
     min-height: 65vh;
   }
   .about-section h1 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   .about-section p {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
   }
   .about-section .btn-product {
     padding: 12px 26px;
