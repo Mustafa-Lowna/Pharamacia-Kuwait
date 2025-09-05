@@ -34,7 +34,6 @@ window.addEventListener("DOMContentLoaded", () => {
   );
   responsiveNavItems.forEach((navItem) => {
     navItem.addEventListener("click", () => {
-      // Only run if navbar is currently shown (mobile view)
       if (navbarCollapse && navbarCollapse.classList.contains("show")) {
         const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
           toggle: false,
@@ -90,12 +89,15 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Smooth scroll for anchor links
+  // Smooth scroll for anchor links including handling # and #top
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
+      if (targetId === "#" || targetId === "#top") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         window.scrollTo({
