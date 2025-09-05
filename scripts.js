@@ -1,34 +1,19 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const navbar =
-    document.querySelector("#mainNav") || document.querySelector(".navbar");
+  const navbar = document.querySelector("#mainNav") || document.querySelector(".navbar");
   const navbarToggler = document.querySelector(".navbar-toggler");
-  responsiveNavItems.forEach((navItem) => {
-    navItem.addEventListener("click", () => {
-      console.log("Nav link clicked");
-      const navbarCollapse = document.getElementById("navbarResponsive");
-      if (navbarCollapse.classList.contains("show")) {
-        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-          toggle: false,
-        });
-        bsCollapse.hide();
-        console.log("Navbar collapse hide called");
-      }
-    });
-  });
-
+  const navbarCollapse = document.getElementById("navbarResponsive");
+  
   // Navbar shrink function (toggle CSS class or inline styles on scroll)
   const navbarShrink = () => {
     if (!navbar) return;
     if (window.scrollY === 0) {
       navbar.classList.remove("navbar-shrink");
-      // Optionally reset inline styles if used:
       if (navbar.style) {
         navbar.style.padding = "12px 0";
         navbar.style.boxShadow = "none";
       }
     } else {
       navbar.classList.add("navbar-shrink");
-      // Optional inline styles on scroll:
       if (navbar.style) {
         navbar.style.padding = "8px 0";
         navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
@@ -48,11 +33,10 @@ window.addEventListener("DOMContentLoaded", () => {
   );
   responsiveNavItems.forEach((navItem) => {
     navItem.addEventListener("click", () => {
-      if (
-        navbarToggler &&
-        window.getComputedStyle(navbarToggler).display !== "none"
-      ) {
-        navbarToggler.click();
+      // Only run if navbar is currently shown (mobile view)
+      if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+        bsCollapse.hide();
       }
     });
   });
@@ -72,7 +56,6 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     { threshold: 0.1 }
   );
-
   animatedElements.forEach((el) => {
     el.style.opacity = 0;
     el.style.transform = "translateY(20px)";
@@ -120,4 +103,3 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
