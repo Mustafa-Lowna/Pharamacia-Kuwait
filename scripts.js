@@ -1,15 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector("#mainNav") || document.querySelector(".navbar");
+  const navbar =
+    document.querySelector("#mainNav") || document.querySelector(".navbar");
   const navbarToggler = document.querySelector(".navbar-toggler");
   const navbarCollapse = document.getElementById("navbarResponsive");
-  
+
   // Navbar shrink function (toggle CSS class or inline styles on scroll)
   const navbarShrink = () => {
     if (!navbar) return;
     if (window.scrollY === 0) {
       navbar.classList.remove("navbar-shrink");
       if (navbar.style) {
-        navbar.style.padding = "12px 0";
+        navbar.style.padding = "8px 0";
         navbar.style.boxShadow = "none";
       }
     } else {
@@ -35,7 +36,9 @@ window.addEventListener("DOMContentLoaded", () => {
     navItem.addEventListener("click", () => {
       // Only run if navbar is currently shown (mobile view)
       if (navbarCollapse && navbarCollapse.classList.contains("show")) {
-        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: false,
+        });
         bsCollapse.hide();
       }
     });
