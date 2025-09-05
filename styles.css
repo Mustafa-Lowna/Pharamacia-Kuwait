@@ -35,7 +35,7 @@ html {
 /* Navbar container fixes */
 /* Desktop default settings */
 .navbar-logo-container img {
-  height: 70px !important;
+  height: 75px !important;
   width: auto !important;
   object-fit: contain;
   margin-left: 0 !important;
@@ -71,13 +71,13 @@ html {
 /* MOBILE - Only logo-text gap change */
 @media (max-width: 767px) {
   .navbar-logo-container img {
-    height: 60px !important;
-    margin-right: 20px !important; /* Gap on mobile */
+    height: 75px !important;
+    margin-right: 30px !important; /* Gap on mobile */
   }
   .navbar-brand {
     font-size: 1.5rem;
     height: 45px;
-    margin-left: 30px;
+    margin-left: 20px;
     padding: 0;
   }
 }
