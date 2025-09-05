@@ -2,6 +2,19 @@ window.addEventListener("DOMContentLoaded", () => {
   const navbar =
     document.querySelector("#mainNav") || document.querySelector(".navbar");
   const navbarToggler = document.querySelector(".navbar-toggler");
+  responsiveNavItems.forEach((navItem) => {
+    navItem.addEventListener("click", () => {
+      console.log("Nav link clicked");
+      const navbarCollapse = document.getElementById("navbarResponsive");
+      if (navbarCollapse.classList.contains("show")) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: false,
+        });
+        bsCollapse.hide();
+        console.log("Navbar collapse hide called");
+      }
+    });
+  });
 
   // Navbar shrink function (toggle CSS class or inline styles on scroll)
   const navbarShrink = () => {
@@ -107,3 +120,4 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
