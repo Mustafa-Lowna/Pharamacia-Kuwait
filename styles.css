@@ -340,6 +340,34 @@ div[style*="linear-gradient"] {
     background-position: 0% 50%;
   }
 }
+@media (max-width: 480px) {
+  .stats-container {
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 10px;
+  }
+  .transition-section {
+    padding: 35px 10px 10px;
+  }
+  .stat-box {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto 25px;
+    padding: 18px 8px;
+  }
+  .tagline,
+  .section-heading {
+    font-size: 25px;
+    padding: 0 8px;
+    margin-top: 40px;
+  }
+  .animated-divider {
+    width: 60px;
+    height: 5px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+}
 
 .btn-primary {
   background-color: var(--primary-blue);
