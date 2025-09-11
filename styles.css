@@ -317,7 +317,7 @@ div[style*="linear-gradient"] {
 }
 
 .count-number {
-  color: #1a6db1;
+  color: #0359a9;
   margin: 10px 0;
   font-size: 40px;
   font-weight: 550;
@@ -601,7 +601,7 @@ div[style*="linear-gradient"] {
 }
 .why-pharmacia {
   background: #f6f9fc;
-  padding: 60px 0 50px 0;
+  padding: 60px 0 120px 0;
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -639,8 +639,8 @@ div[style*="linear-gradient"] {
   height: 200px;
   object-fit: contain;
   border-radius: 50%;
-  box-shadow: 0 0px 16px #01478d2c;
-  border: 2px solid #14387e;
+  box-shadow: 0 0px 16px #076fa76c;
+  border: 1px solid #076fa7;
   background: #fff;
 }
 
