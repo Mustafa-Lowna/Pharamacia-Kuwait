@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Wound Care Supplies | PHARMACIA</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-blue: #1a6db1;
+        --secondary-blue: #3498db;
+        --accent-green: #2ecc71;
+        --dark-text: #2c3e50;
+        --light-text: #7f8c8d;
+        --white: #ffffff;
+        --light-bg: #f8f9fa;
+        --gold: #d4af37;
+      }
+
+      body {
+        font-family: "Montserrat", Arial, sans-serif;
+        color: var(--dark-text);
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.6;
+        background-color: var(--white);
+      }
+
+      .navbar {
+        padding: 12px 0;
+        background-color: var(--white) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--primary-blue) !important;
+      }
+
+      .navbar-brand span {
+        color: var(--accent-green);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 8px;
+        position: relative;
+        color: var(--dark-text) !important;
+        font-size: 16px;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-green);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover:after {
+        width: 100%;
+      }
+
+      .product-hero {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1584813545250-75c0221a08b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdvdW5kJTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .product-title {
+        font-family: "Playfair Display", serif;
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--dark-text);
+      }
+
+      .product-subtitle {
+        font-size: 20px;
+        color: var(--light-text);
+        margin-bottom: 30px;
+      }
+
+      .breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin-bottom: 30px;
+      }
+
+      .breadcrumb-item a {
+        color: var(--primary-blue);
+        text-decoration: none;
+      }
+
+      .product-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .product-image:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-price {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin: 20px 0;
+      }
+
+      .product-description {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--dark-text);
+        margin-bottom: 30px;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+      }
+
+      .feature-list li {
+        padding: 10px 0;
+        padding-left: 40px;
+        position: relative;
+        font-size: 16px;
+      }
+
+      .feature-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: var(--accent-green);
+        position: absolute;
+        left: 0;
+        top: 10px;
+        font-size: 18px;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-blue);
+        border-color: var(--primary-blue);
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-size: 16px;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-blue);
+        border-color: var(--secondary-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline-primary {
+        color: var(--primary-blue);
+        border-color: var(--primary-blue);
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-size: 16px;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary-blue);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+      }
+
+      .quantity-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--light-bg);
+        border: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .quantity-input {
+        width: 60px;
+        text-align: center;
+        border: none;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 10px;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 50px 0 30px;
+        position: relative;
+        padding-bottom: 15px;
+        text-align: center;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--primary-blue);
+        border-radius: 2px;
+      }
+
+      .benefit-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        text-align: center;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .benefit-icon {
+        font-size: 40px;
+        color: var(--primary-blue);
+        margin-bottom: 20px;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        margin: 20px 0;
+        position: relative;
+      }
+
+      .testimonial-card:before {
+        content: '"';
+        font-size: 60px;
+        color: var(--primary-blue);
+        opacity: 0.2;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        line-height: 1;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .certification-badge {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
+
+      .certification-badge:hover {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+
+      .related-product {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .related-product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .related-product-img {
+        height: 200px;
+        background-color: #e0f0ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .related-product-content {
+        padding: 20px;
+      }
+
+      footer {
+        background-color: var(--dark-text);
+        color: var(--white);
+        padding: 60px 0 30px;
+        margin-top: 100px;
+      }
+
+      @media (max-width: 768px) {
+        .product-title {
+          font-size: 32px;
+        }
+
+        .product-subtitle {
+          font-size: 18px;
+        }
+
+        .section-title {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Product Hero Section -->
+    <section class="product-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Wound Care Supplies
+            </li>
+          </ol>
+        </nav>
+        <h1 class="product-title">Premium Wound Care Supplies</h1>
+        <p class="product-subtitle">
+          Advanced medical products for optimal healing and infection prevention
+        </p>
+      </div>
+    </section>
+
+    <!-- Product Detail Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="product-image">
+              <img
+                src="img/Wound Care Supplies.jpg"
+                alt="Wound Care Supplies"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h2 class="product-price">From $12.99</h2>
+            <p class="product-description">
+              Our premium wound care supplies include sterile dressings,
+              bandages, and advanced wound care products designed to promote
+              optimal healing and prevent infection. Manufactured to the highest
+              medical standards, these products are trusted by healthcare
+              professionals worldwide.
+            </p>
+
+            <ul class="feature-list">
+              <li>Sterile and hypoallergenic materials</li>
+              <li>Advanced absorption technology</li>
+              <li>Waterproof and breathable options</li>
+              <li>Antimicrobial protection</li>
+              <li>Easy application and removal</li>
+              <li>Available in various sizes</li>
+            </ul>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#" class="btn btn-primary">Order Now</a>
+              <a href="#" class="btn btn-outline-primary">Request Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title">Why Choose Our Wound Care Products</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Infection Prevention</h3>
+              <p>
+                Advanced antimicrobial protection reduces the risk of infection
+                and promotes faster healing.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <h3>Optimal Healing</h3>
+              <p>
+                Creates the ideal moist wound environment for accelerated
+                healing and reduced scarring.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <h3>Professional Grade</h3>
+              <p>
+                Trusted by healthcare professionals in hospitals, clinics, and
+                home care settings worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "PHARMACIA's wound care products have become our standard choice
+                in our clinic. The advanced dressings significantly improve
+                healing times and patient comfort compared to other products
+                we've used."
+              </p>
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/65.jpg"
+                    alt="Dr. Sarah Miller"
+                    class="rounded-circle"
+                    width="50"
+                  />
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-0">Dr. Sarah Miller</h5>
+                  <p class="text-muted mb-0">
+                    Chief Medical Officer, City Health Clinic
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "The absorption capacity of these dressings is remarkable. They
+                require fewer changes, which means less disruption to the
+                healing process and reduced overall treatment costs for our
+                patients."
+              </p>
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/42.jpg"
+                    alt="Dr. James Wilson"
+                    class="rounded-circle"
+                    width="50"
+                  />
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-0">Dr. James Wilson</h5>
+                  <p class="text-muted mb-0">
+                    Wound Care Specialist, Regional Hospital
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "PHARMACIA's wound care products have become our standard choice
+                in our clinic. The advanced dressings significantly improve
+                healing times and patient comfort compared to other products
+                we've used."
+              </p>
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/65.jpg"
+                    alt="Dr. Sarah Miller"
+                    class="rounded-circle"
+                    width="50"
+                  />
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-0">Dr. Sarah Miller</h5>
+                  <p class="text-muted mb-0">
+                    Chief Medical Officer, City Health Clinic
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "The absorption capacity of these dressings is remarkable. They
+                require fewer changes, which means less disruption to the
+                healing process and reduced overall treatment costs for our
+                patients."
+              </p>
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/42.jpg"
+                    alt="Dr. James Wilson"
+                    class="rounded-circle"
+                    width="50"
+                  />
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-0">Dr. James Wilson</h5>
+                  <p class="text-muted mb-0">
+                    Wound Care Specialist, Regional Hospital
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Quantity selector functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const decreaseBtn = document.getElementById("decreaseQty");
+        const increaseBtn = document.getElementById("increaseQty");
+        const quantityInput = document.getElementById("productQty");
+
+        decreaseBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityInput.value);
+          if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+          }
+        });
+
+        increaseBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityInput.value);
+          quantityInput.value = currentValue + 1;
+        });
+
+        // Animation for elements when they come into view
+        const animatedElements = document.querySelectorAll(
+          ".benefit-card, .testimonial-card, .related-product"
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        animatedElements.forEach((el) => {
+          el.style.opacity = 0;
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

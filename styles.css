@@ -115,7 +115,21 @@ html {
     height: 40px;
   }
 }
+@keyframes slideGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
+div[style*="linear-gradient"] {
+  background-size: 200% 200%;
+}
 /* Order Now Button */
 .btn-success {
   background-color: #009879;
@@ -133,10 +147,10 @@ html {
 
 .hero-section {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.814),
-      rgba(255, 255, 255, 0.774)
+      rgba(255, 255, 255, 0.571),
+      rgba(255, 255, 255, 0.871)
     ),
-    url("img/Laboratory\ BG.jpg") center/cover no-repeat;
+    url("img/Pharamacia\ Kuwait\ Company 1.jpg") center/cover no-repeat;
   padding: 180px 0;
   text-align: center;
   min-height: 100vh;
@@ -210,7 +224,6 @@ html {
   padding: 10px 24px;
   margin-top: 15px;
   cursor: pointer;
-  letter-spacing: 1px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   text-decoration: none;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
@@ -260,6 +273,72 @@ html {
   margin-bottom: 32px;
   /* color: var(--light-text); */
   animation: fadeInUp 1s ease;
+}
+.transition-section {
+  background: #f0f4f8;
+  padding: 150px;
+  padding-top: 50px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.animated-divider {
+  width: 80px;
+  height: 6px;
+  margin: 0 auto 30px;
+  border-radius: 3px;
+  background: linear-gradient(270deg, #0056b3, #007bff, #0056b3);
+  animation: slideGradient 3s infinite;
+  background-size: 200% 200%;
+  margin-top: 5px;
+}
+
+.tagline {
+  color: #00458b;
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.stat-box {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 250px;
+  margin-top: 20px;
+}
+
+.count-number {
+  color: #1a6db1;
+  margin: 10px 0;
+  font-size: 40px;
+  font-weight: 550;
+}
+
+.desc-text {
+  margin: 0;
+  color: #333;
+  font-weight: 500;
+}
+
+@keyframes slideGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .btn-primary {
@@ -491,6 +570,109 @@ html {
   font-size: 15px;
   font-style: italic;
   margin-bottom: 20px;
+}
+.why-pharmacia {
+  background: #f6f9fc;
+  padding: 60px 0 50px 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.why-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #14387e;
+}
+
+.why-features {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  align-items: center;
+}
+
+.why-column {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.why-logo {
+  flex: 0 0 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0px 16px #01478d2c;
+  border: 2px solid #14387e;
+  background: #fff;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.why-icon img {
+  width: 48px;
+  height: 48px;
+  background: #dbedff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 80, 180, 0.08);
+}
+
+.feature-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #14387e;
+}
+
+.feature-desc {
+  font-size: 15px;
+  margin: 0;
+  color: #21456d;
+}
+
+@media (max-width: 900px) {
+  .why-features {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center; /* Center horizontally */
+    padding: 0 45px; /* Side padding for breathing room */
+  }
+  .why-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 70px;
+  }
+  .why-column {
+    flex: 1 1 100%;
+    max-width: 400px; /* Max width for better control */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .why-logo {
+    flex: 1 1 100%;
+    max-width: 400px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .feature {
+    justify-content: flex-start; /* Left align icon + text */
+  }
 }
 
 #certifications {
