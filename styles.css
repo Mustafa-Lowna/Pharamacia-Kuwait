@@ -150,7 +150,7 @@ div[style*="linear-gradient"] {
       rgba(255, 255, 255, 0.571),
       rgba(255, 255, 255, 0.871)
     ),
-    url("img/Pharamacia\ Kuwait\ Company 1.jpg") center/cover no-repeat;
+    url("img/Pharamacia\ Kuwait\ Company\ 1.jpg") center/cover no-repeat;
   padding: 180px 0;
   text-align: center;
   min-height: 100vh;
@@ -371,7 +371,7 @@ div[style*="linear-gradient"] {
 
 .btn-primary {
   background-color: var(--primary-blue);
-  border-color: var(--primary-blue);
+  /* border-color: var(--primary-blue); */
   padding: 10px 24px;
   font-weight: 600;
   border-radius: 30px;
