@@ -88,66 +88,6 @@ window.addEventListener("DOMContentLoaded", () => {
       this.reset();
     });
   }
-  // Count animation function
-  function animateCount(id, max, duration) {
-    const element = document.getElementById(id);
-    let start = 0;
-    const stepTime = Math.abs(Math.floor(duration / max));
-
-    let timer = setInterval(() => {
-      start += 1;
-      element.textContent =
-        start + (id === "prodCount" && start === max ? "+" : "");
-      if (start >= max) {
-        clearInterval(timer);
-      }
-    }, stepTime);
-  }
-
-  // Animate counts on page load
-  window.onload = () => {
-    animateCount("expCount", 25, 1000); // 1 to 25 in 1 second
-    animateCount("prodCount", 200, 1500); // 1 to 1000+ in 1.5 seconds
-    animateCount("custSatCount", 99, 1200); // 1 to 99 for Customer Satisfaction example
-  };
-  // Animate counts when section comes into view
-  function animateCount(id, end, duration, suffix = "") {
-    const el = document.getElementById(id);
-    let num = 0;
-    if (!el) return;
-    const interval = Math.max(Math.floor(duration / end), 10);
-    const timer = setInterval(() => {
-      num++;
-      el.textContent = num + suffix;
-      if (num >= end) {
-        el.textContent = end + suffix;
-        clearInterval(timer);
-      }
-    }, interval);
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const section = document.querySelector(".transition-section");
-    let counted = false;
-
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!counted && entry.isIntersecting) {
-            counted = true;
-            animateCount("expCount", 25, 1000, "");
-            animateCount("prodCount", 200, 1500, "+");
-            animateCount("custSatCount", 99, 1200, "%");
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(section);
-  });
   // Smooth scroll for anchor links including handling # and #top
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -167,3 +107,54 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+function countUp(element) {
+  const endValue = parseInt(element.getAttribute("data-value"));
+  let startValue = 0;
+  const increment = Math.max(1, Math.floor(endValue / 100)); // Zyada steps for slower animation
+  function updateCount() {
+    startValue += increment;
+    if (startValue > endValue) startValue = endValue;
+    element.textContent = startValue;
+    if (startValue < endValue) {
+      setTimeout(updateCount, 40); // 40ms delay for slower count
+    }
+  }
+  updateCount();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const counters = document.querySelectorAll(".num-animate");
+  const options = { threshold: 0.6 };
+  function handleIntersect(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = "true";
+        countUp(entry.target);
+      }
+    });
+  }
+  const observer = new IntersectionObserver(handleIntersect, options);
+  counters.forEach((counter) => {
+    observer.observe(counter);
+  });
+});
+
+function countUp(element) {
+  const endValue = parseInt(element.getAttribute("data-value"));
+  let startValue = 0;
+  const increment = Math.max(1, Math.floor(endValue / 100));
+  const plusSign = element.querySelector(".plus-sign");
+
+  function updateCount() {
+    startValue += increment;
+    if (startValue >= endValue) {
+      startValue = endValue;
+      element.childNodes[0].nodeValue = startValue;
+      if (plusSign) plusSign.style.display = "inline"; // Show plus sign at end
+    } else {
+      element.childNodes[0].nodeValue = startValue;
+      setTimeout(updateCount, 40);
+    }
+  }
+  updateCount();
+}

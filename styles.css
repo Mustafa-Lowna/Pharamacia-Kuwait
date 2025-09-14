@@ -38,8 +38,8 @@ html {
   height: 75px !important;
   width: auto !important;
   object-fit: contain;
-  margin-left: 0 !important;
   margin-right: 20px !important; /* Gap between logo and text */
+  margin-left: 25px !important; /* Gap between logo and text */
 }
 
 /* Navbar brand layout */
@@ -94,12 +94,13 @@ html {
 @media (max-width: 767px) {
   .navbar-logo-container img {
     height: 75px !important;
-    margin-right: 30px !important; /* Gap on mobile */
+    margin-right: 25px !important;
+    margin-left: 10px !important;
   }
   .navbar-brand {
     font-size: 1.5rem;
     height: 45px;
-    margin-left: 20px;
+    margin-left: 5px;
     padding: 0;
   }
 }
@@ -147,8 +148,10 @@ div[style*="linear-gradient"] {
 
 .hero-section {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.571),
-      rgba(255, 255, 255, 0.871)
+      rgba(255, 255, 255, 0.434) 0%,
+      rgba(255, 255, 255, 0.8) 40%,
+      rgba(255, 255, 255, 0.644) 75%,
+      rgba(255, 255, 255, 0.454) 100%
     ),
     url("img/Pharamacia\ Kuwait\ Company\ 1.jpg") center/cover no-repeat;
   padding: 180px 0;
@@ -160,13 +163,21 @@ div[style*="linear-gradient"] {
   position: relative; /* for z-index layering if needed */
   overflow: hidden;
   padding-top: 170px;
+  animation: fadeInBg 2.5s ease forwards;
 }
-
+@keyframes fadeInBg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* Mobile */
 @media (max-width: 767px) {
   .hero-section {
     min-height: 90vh !important; /* force greater height */
-    padding: 210px 25px !important;
+    padding: 200px 25px !important;
     background-position: center top !important;
     background-size: cover !important;
     display: block !important; /* switch flex to block on mobile for better height handling */
@@ -271,62 +282,74 @@ div[style*="linear-gradient"] {
 .hero-subtitle {
   font-size: 18px;
   margin-bottom: 32px;
+  margin-top: 32px;
   /* color: var(--light-text); */
   animation: fadeInUp 1s ease;
 }
-.transition-section {
-  background: #f0f4f8;
-  padding: 150px;
-  padding-top: 50px;
-  text-align: center;
-  font-family: Arial, sans-serif;
+.impact-section {
+  background: #f4f8fc;
+  width: 100%;
 }
 
-.animated-divider {
-  width: 80px;
-  height: 6px;
-  margin: 0 auto 30px;
-  border-radius: 3px;
-  background: linear-gradient(270deg, #0056b3, #007bff, #0056b3);
-  animation: slideGradient 3s infinite;
-  background-size: 200% 200%;
-  margin-top: 5px;
+.impact-heading {
+  font-weight: 700;
+  color: #1a6db1;
+  font-size: 2rem;
+  margin-top: 50px;
+}
+.impact-divider {
+  width: 60px;
+  height: 3px;
+  background: #1a6db1;
+  margin: 18px auto 28px auto;
+  border-radius: 2px;
 }
 
-.tagline {
-  color: #00458b;
-  font-weight: 600;
-  margin-bottom: 30px;
-  margin-top: 30px;
-}
-
-.stats-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.stat-box {
+.impact-card-alt {
   background: #fff;
-  padding: 25px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  width: 250px;
-  margin-top: 20px;
+  border-radius: 17px;
+  box-shadow: 0 3px 14px rgba(26, 109, 177, 0.08);
+  padding: 38px 18px;
+  text-align: center;
+  transition: box-shadow 0.19s, transform 0.18s;
+  min-height: 100px;
+  min-width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #1a6db11d;
 }
-
-.count-number {
-  color: #0359a9;
-  margin: 10px 0;
-  font-size: 40px;
-  font-weight: 550;
+.impact-card-alt:hover {
+  box-shadow: 0 10px 32px rgba(26, 109, 177, 0.13);
+  transform: translateY(-3px);
 }
-
-.desc-text {
-  margin: 0;
-  color: #333;
-  font-weight: 500;
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e1ecf8;
+  color: #1a6db1;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 2rem;
+  margin-bottom: 17px;
+}
+.impact-value-alt {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #1a6db1;
+  margin-bottom: 8px;
+}
+.impact-label-alt {
+  font-size: 1.08rem;
+  color: #3d4861;
+}
+.plus-sign {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a6db1;
+  margin-left: 2px;
 }
 
 @keyframes slideGradient {
@@ -368,7 +391,6 @@ div[style*="linear-gradient"] {
     margin-bottom: 50px;
   }
 }
-
 .btn-primary {
   background-color: var(--primary-blue);
   /* border-color: var(--primary-blue); */
@@ -572,7 +594,7 @@ div[style*="linear-gradient"] {
 }
 
 .testimonial-card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.201);
   border-radius: 8px;
   padding: 20px;
   background-color: #ffffff;
@@ -580,7 +602,7 @@ div[style*="linear-gradient"] {
 }
 
 .testimonial-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.164);
 }
 
 .testimonial-card:before {
@@ -599,66 +621,55 @@ div[style*="linear-gradient"] {
   font-style: italic;
   margin-bottom: 20px;
 }
-.why-pharmacia {
-  background: #f6f9fc;
-  padding: 60px 0 120px 0;
+.why-choose h2 {
   text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-.why-title {
-  font-size: 32px;
   font-weight: 700;
-  margin-bottom: 50px;
-  color: #14387e;
+  margin-top: 50px;
+  color: #1a6db1;
 }
-
-.why-features {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  align-items: center;
-}
-
-.why-column {
-  flex: 0 0 340px;
+.why-card {
+  background: #f4f8fc;
+  box-shadow: 0 2px 8px rgba(26, 109, 177, 0.04);
+  border-radius: 18px;
+  padding: 32px 22px 20px 22px;
+  text-align: center;
+  min-height: 240px;
   display: flex;
   flex-direction: column;
-  gap: 35px;
-}
-
-.why-logo {
-  flex: 0 0 220px;
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
-
-.center-logo {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 50%;
-  box-shadow: 0 0px 16px #076fa76c;
-  border: 1px solid #076fa7;
-  background: #fff;
+.why-card:hover {
+  box-shadow: 0 12px 24px rgba(26, 109, 177, 0.09);
+  background: rgba(13, 75, 122, 0.071);
 }
-
-.feature {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  text-align: left;
-}
-
-.why-icon img {
+.why-icon {
   width: 48px;
   height: 48px;
-  background: #dbedff;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 80, 180, 0.08);
+  margin-bottom: 18px;
 }
-
+.why-card h4 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #1a6db1;
+  margin-bottom: 8px;
+}
+.why-card p {
+  color: #29354c;
+  font-size: 16px;
+}
+.why-icon {
+  font-size: 2.5rem;
+  color: #1a6db1;
+  margin-bottom: 12px;
+}
+.why-divider {
+  width: 100px;
+  height: 3px;
+  background: #1a6db1;
+  margin: 18px auto 28px auto;
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
 .feature-title {
   font-size: 19px;
   font-weight: 700;
