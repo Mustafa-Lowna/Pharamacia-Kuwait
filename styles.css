@@ -148,12 +148,11 @@ div[style*="linear-gradient"] {
 
 .hero-section {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.434) 0%,
-      rgba(255, 255, 255, 0.8) 40%,
-      rgba(255, 255, 255, 0.644) 75%,
-      rgba(255, 255, 255, 0.454) 100%
+      /* rgba(255, 255, 255, 0.434) 0%, */ rgba(255, 255, 255, 0.8) 40%,
+      rgba(255, 255, 255, 0.847) 75%,
+      rgba(255, 255, 255, 0.68) 100%
     ),
-    url("img/Pharamacia\ Kuwait\ Company\ 1.jpg") center/cover no-repeat;
+    url("img/Laboratory\ BG.jpg") center/cover no-repeat;
   padding: 180px 0;
   text-align: center;
   min-height: 100vh;
@@ -163,16 +162,17 @@ div[style*="linear-gradient"] {
   position: relative; /* for z-index layering if needed */
   overflow: hidden;
   padding-top: 170px;
-  animation: fadeInBg 2.5s ease forwards;
+  /* animation: fadeInBg 2.5s ease forwards; */
 }
-@keyframes fadeInBg {
+/* @keyframes fadeInBg {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
-}
+} */
+
 /* Mobile */
 @media (max-width: 767px) {
   .hero-section {
@@ -350,6 +350,14 @@ div[style*="linear-gradient"] {
   font-weight: 800;
   color: #1a6db1;
   margin-left: 2px;
+}
+@media (max-width: 480px) {
+  .impact-card-alt {
+    min-width: 100px; /* width chhoti ki */
+    max-width: 75vw; /* screen width ke hisaab se flexible */
+    padding: 18px 10px; /* thoda kam padding cards ke andar */
+    margin: auto;
+  }
 }
 
 @keyframes slideGradient {
