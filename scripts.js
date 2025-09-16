@@ -65,29 +65,6 @@ window.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-  // Form submission handling with validation and success alert
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = this.querySelector('input[type="text"]').value;
-      const email = this.querySelector('input[type="email"]').value;
-      const subject = this.querySelector('input[placeholder="Subject"]').value;
-      const message = this.querySelector("textarea").value;
-      if (!name || !email || !message) {
-        alert("Please fill in all required fields");
-        return;
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert("Please enter a valid email address");
-        return;
-      }
-      console.log("Form submitted:", { name, email, subject, message });
-      alert("Thank you for your message! We will get back to you soon.");
-      this.reset();
-    });
-  }
   // Smooth scroll for anchor links including handling # and #top
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
