@@ -516,25 +516,29 @@ div[style*="linear-gradient"] {
 
 @media (max-width: 600px) {
   .testimonial-card {
-    padding: 25px;
-    border-radius: 7px;
+    padding: 30px 20px;
+    border-radius: 10px;
     min-width: 0;
-    max-width: 75vw;
-    margin: 0 auto 22px auto;
-    font-size: 0.92rem;
+    max-width: 90vw;
+    margin: 0 auto 24px auto;
+    font-size: 1rem;
+    background-color: #f9fbff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   .testimonial-card:before {
-    font-size: 34px;
-    top: 3px;
-    left: 8px;
+    font-size: 36px;
+    top: 6px;
+    left: 12px;
+    color: #0070cc;
   }
   .testimonial-text {
-    font-size: 0.97rem;
-    margin-bottom: 12px;
-    line-height: 1.45;
-    padding-left: 16px;
-    padding-right: 8px;
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    padding-left: 20px;
+    padding-right: 16px;
     word-break: break-word;
+    color: #333;
   }
 }
 
@@ -761,51 +765,54 @@ div[style*="linear-gradient"] {
 
   .team-grid {
     flex-direction: column;
-    gap: 22px;
+    gap: 24px;
     align-items: center;
   }
 
   .team-member-card {
-    padding: 16px 10px;
-    width: 92vw;
-    min-width: 150px;
-    max-width: 290px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-  }
-
-  .team-photo {
-    width: 74px;
-    height: 74px;
-    margin-bottom: 10px;
-    border-width: 3px;
-  }
-
-  .team-name {
-    font-size: 1.08rem;
-    margin-bottom: 3px;
-  }
-
-  .team-position {
-    font-size: 0.84rem;
-    margin-bottom: 8px;
-  }
-
-  .social-links {
-    right: -52px;
-    gap: 9px;
-    transform: translateY(-50%);
+    padding: 24px 20px; /* Padding bada diya */
+    width: 95vw; /* Width thodi badhai */
+    min-width: 170px; /* Min-width thodi badhai */
+    max-width: 330px; /* Max-width thodi badhai */
+    margin-bottom: 28px; /* Margin bhi thoda bada */
+    border-radius: 12px; /* Radius thoda bada */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
 
   .team-member-card:hover .social-links {
     right: 12px;
   }
 
+  .team-photo {
+    width: 90px; /* Photo size badhai */
+    height: 90px;
+    margin-bottom: 12px;
+    border-width: 3px;
+    border-radius: 50%;
+  }
+
+  .team-name {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+  }
+
+  .team-position {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .social-links {
+    right: -42px;
+    gap: 12px;
+    transform: translateY(-50%);
+  }
+
   .social-links a {
-    width: 30px;
-    height: 30px;
-    font-size: 15px;
-    box-shadow: 0 1px 4px rgba(26, 109, 177, 0.18);
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    box-shadow: 0 1px 5px rgba(26, 109, 177, 0.22);
   }
 }
 
@@ -1052,5 +1059,185 @@ footer {
 
   h3 {
     font-size: 20px;
+  }
+}
+
+/* ChatBot */
+/* ChatBot */
+/* ChatBot */
+
+.pharmacia-chatbot {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.chatbot-button {
+  width: 60px;
+  height: 60px;
+  background-color: #1a67aa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.chatbot-button:hover {
+  transform: scale(1.05);
+  background-color: #0d4d80;
+}
+
+.chatbot-button svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.chatbot-window {
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.chatbot-window.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.chatbot-header {
+  background: #1a67aa;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.chatbot-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.bot-message {
+  background-color: #e9eef2;
+  border-top-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.user-message {
+  background-color: #1a67aa;
+  color: white;
+  border-top-right-radius: 4px;
+  align-self: flex-end;
+}
+
+.chatbot-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #e9ecef;
+  background: white;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.chatbot-send {
+  background: #1a67aa;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-send svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+.chatbot-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.chatbot-quick-reply {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chatbot-quick-reply:hover {
+  background: #f0f5ff;
+  border-color: #1a67aa;
+}
+
+@media (max-width: 480px) {
+  .chatbot-window {
+    width: 320px;
+    right: -20px;
   }
 }

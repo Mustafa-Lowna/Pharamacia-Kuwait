@@ -79,7 +79,13 @@
             </li>
           </ul>
           <div class="ms-lg-3 mt-3 mt-lg-0">
-            <a href="order.html" class="btn btn-orange">Order Now</a>
+            <a
+              href="#"
+              class="btn btn-orange"
+              data-bs-toggle="modal"
+              data-bs-target="#videoModal"
+              >Watch Video</a
+            >
           </div>
         </div>
       </div>
@@ -106,7 +112,15 @@
               <a href="#products" class="btn btn-primary cta-btn"
                 >Our Products</a
               >
-              <a href="order.html" class="btn btn-orange cta-btn">Order Now</a>
+              <a
+                href="order.html"
+                href="#"
+                class="btn btn-orange"
+                data-bs-toggle="modal"
+                data-bs-target="#videoModal"
+                class="btn btn-orange cta-btn"
+                >Watch Video</a
+              >
             </div>
           </div>
         </div>
@@ -354,7 +368,7 @@
       <div class="team-grid">
         <div class="team-member-card">
           <img
-            src="img/Dr. Aman Verma.png"
+            src="img/Dr Arjun Singh.jpg"
             alt="Dr. Arjun Singh"
             class="team-photo"
           />
@@ -384,7 +398,7 @@
 
         <div class="team-member-card">
           <img
-            src="img/Rahul Singh.png"
+            src="img/Sameer Verma.jpg"
             alt="Mr. Sameer Verma"
             class="team-photo"
           />
@@ -414,11 +428,11 @@
 
         <div class="team-member-card">
           <img
-            src="img/Rajesh Kumar.png"
+            src="img/Rakesh Sharma.jpg"
             alt="Mr. Rajesh Kumar"
             class="team-photo"
           />
-          <h3 class="team-name">Mr. Rajesh Kumar</h3>
+          <h3 class="team-name">Mr. Rakesh Sharma</h3>
           <p class="team-position">Supply Chain Manager</p>
           <div class="social-links">
             <a
@@ -733,6 +747,83 @@
         </div>
       </div>
     </footer>
+    <div
+      class="modal fade"
+      id="videoModal"
+      tabindex="-1"
+      aria-labelledby="videoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="videoModalLabel">
+              Our Introduction Video
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <iframe
+              width="100%"
+              height="400"
+              src="vid/Intro Pharmacia 2.mp4"
+              title="Intro Video"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot -->
+    <!-- Chatbot -->
+    <!-- Chatbot -->
+
+    <div class="pharmacia-chatbot">
+      <div class="chatbot-button">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"
+          />
+        </svg>
+      </div>
+
+      <div class="chatbot-window">
+        <div class="chatbot-header">
+          <h3>Pharmacia Assistant</h3>
+          <button class="chatbot-close">&times;</button>
+        </div>
+
+        <div class="chatbot-messages">
+          <div class="chat-message bot-message">
+            Hello! I'm your Pharmacia virtual assistant. How can I help you
+            today?
+          </div>
+        </div>
+
+        <div class="chatbot-quick-replies">
+          <div class="chatbot-quick-reply">Our Experts</div>
+          <div class="chatbot-quick-reply">Client Reviews</div>
+          <div class="chatbot-quick-reply">Why Choose Us</div>
+          <div class="chatbot-quick-reply">Products</div>
+        </div>
+
+        <div class="chatbot-input">
+          <input type="text" placeholder="Type your message here..." />
+          <button class="chatbot-send">
+            <svg viewBox="0 0 24 24">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap JS -->
     <script
