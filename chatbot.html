@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharmacia Chatbot</title>
+    <style>
+      /* Chatbot widget styles */
+      .pharmacia-chatbot {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10000;
+      }
+
+      .chatbot-button {
+        width: 60px;
+        height: 60px;
+        background-color: #1a67aa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .chatbot-button:hover {
+        transform: scale(1.05);
+        background-color: #0d4d80;
+      }
+
+      .chatbot-button svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+      }
+
+      .chatbot-window {
+        width: 350px;
+        height: 500px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+      }
+
+      .chatbot-window.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .chatbot-header {
+        background: #1a67aa;
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .chatbot-header h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .chatbot-close {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .chatbot-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .chat-message {
+        max-width: 80%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        line-height: 1.4;
+        position: relative;
+      }
+
+      .bot-message {
+        background-color: #e9eef2;
+        border-top-left-radius: 4px;
+        align-self: flex-start;
+      }
+
+      .user-message {
+        background-color: #1a67aa;
+        color: white;
+        border-top-right-radius: 4px;
+        align-self: flex-end;
+      }
+
+      .chatbot-input {
+        display: flex;
+        padding: 15px;
+        border-top: 1px solid #e9ecef;
+        background: white;
+      }
+
+      .chatbot-input input {
+        flex: 1;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        outline: none;
+        font-size: 1rem;
+      }
+
+      .chatbot-send {
+        background: #1a67aa;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .chatbot-send svg {
+        width: 18px;
+        height: 18px;
+        fill: white;
+      }
+
+      .chatbot-quick-replies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 15px;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .chatbot-quick-reply {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .chatbot-quick-reply:hover {
+        background: #f0f5ff;
+        border-color: #1a67aa;
+      }
+
+      @media (max-width: 480px) {
+        .chatbot-window {
+          width: 320px;
+          right: -20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Pharmacia Chatbot Widget -->
+    <div class="pharmacia-chatbot">
+      <div class="chatbot-button">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"
+          />
+        </svg>
+      </div>
+
+      <div class="chatbot-window">
+        <div class="chatbot-header">
+          <h3>Pharmacia Assistant</h3>
+          <button class="chatbot-close">&times;</button>
+        </div>
+
+        <div class="chatbot-messages">
+          <div class="chat-message bot-message">
+            Hello! I'm your Pharmacia virtual assistant. How can I help you
+            today?
+          </div>
+        </div>
+
+        <div class="chatbot-quick-replies">
+          <div class="chatbot-quick-reply">Products</div>
+          <div class="chatbot-quick-reply">Ordering</div>
+          <div class="chatbot-quick-reply">Delivery</div>
+          <div class="chatbot-quick-reply">Support</div>
+        </div>
+
+        <div class="chatbot-input">
+          <input type="text" placeholder="Type your message here..." />
+          <button class="chatbot-send">
+            <svg viewBox="0 0 24 24">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // DOM elements
+        const chatbotButton = document.querySelector(".chatbot-button");
+        const chatbotWindow = document.querySelector(".chatbot-window");
+        const chatbotClose = document.querySelector(".chatbot-close");
+        const chatbotSend = document.querySelector(".chatbot-send");
+        const chatbotInput = document.querySelector(".chatbot-input input");
+        const chatbotMessages = document.querySelector(".chatbot-messages");
+        const quickReplies = document.querySelectorAll(".chatbot-quick-reply");
+
+        // Toggle chat window
+        chatbotButton.addEventListener("click", function () {
+          chatbotWindow.classList.toggle("active");
+        });
+
+        chatbotClose.addEventListener("click", function () {
+          chatbotWindow.classList.remove("active");
+        });
+
+        // Send message function
+        function sendMessage() {
+          const message = chatbotInput.value.trim();
+          if (message === "") return;
+
+          // Add user message
+          addMessage(message, "user");
+          chatbotInput.value = "";
+
+          // Simulate bot response after a short delay
+          setTimeout(() => {
+            const botResponse = generateResponse(message);
+            addMessage(botResponse, "bot");
+          }, 600);
+        }
+
+        // Send button event
+        chatbotSend.addEventListener("click", sendMessage);
+
+        // Send message on Enter key
+        chatbotInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            sendMessage();
+          }
+        });
+
+        // Quick replies
+        quickReplies.forEach((reply) => {
+          reply.addEventListener("click", function () {
+            const text = this.textContent;
+            addMessage(text, "user");
+
+            // Simulate bot response after a short delay
+            setTimeout(() => {
+              const botResponse = generateResponse(text);
+              addMessage(botResponse, "bot");
+            }, 600);
+          });
+        });
+
+        // Add message to chat
+        function addMessage(text, sender) {
+          const messageElement = document.createElement("div");
+          messageElement.classList.add("chat-message");
+          messageElement.classList.add(sender + "-message");
+          messageElement.textContent = text;
+
+          chatbotMessages.appendChild(messageElement);
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Knowledge base for the chatbot
+        const knowledgeBase = {
+          greeting: {
+            patterns: ["hi", "hello", "hey", "good morning", "good afternoon"],
+            responses: [
+              "Hello! Welcome to Pharmacia. How can I assist you today?",
+              "Hi there! How can I help you with your pharmaceutical needs?",
+              "Hello! Thank you for contacting Pharmacia. What can I help you with?",
+            ],
+          },
+          products: {
+            patterns: [
+              "product",
+              "what do you sell",
+              "offer",
+              "medication",
+              "medicine",
+              "drug",
+              "vaccine",
+              "supplement",
+            ],
+            responses: [
+              "Pharmacia offers a wide range of premium pharmaceutical products including cardiovascular medications, vaccines, nutritional supplements, and more. You can explore all products on our Products page.",
+              "We provide various pharmaceuticals including prescription medications, over-the-counter drugs, vaccines, and nutritional supplements. Is there a specific product category you're interested in?",
+              "Our product range includes specialized medications, medical supplies, vaccines, and health supplements. All our products meet the highest quality standards.",
+            ],
+          },
+          ordering: {
+            patterns: [
+              "order",
+              "how to buy",
+              "purchase",
+              "place an order",
+              "buy",
+            ],
+            responses: [
+              "To place an order, visit our Order page where you can select products and provide your details for fast processing.",
+              "You can order directly through our website by visiting the 'Order Now' section. Need help with a specific product?",
+              "For ordering, please navigate to our Orders section where you can browse products and complete your purchase securely.",
+            ],
+          },
+          delivery: {
+            patterns: [
+              "delivery",
+              "shipping",
+              "when will i receive",
+              "delivery time",
+              "how long",
+            ],
+            responses: [
+              "Our delivery times vary depending on location, but we strive to ensure prompt and reliable shipping. Most orders are delivered within 3-5 business days.",
+              "Delivery typically takes 2-5 business days depending on your location. Express shipping options are also available.",
+              "We offer various shipping options with delivery times ranging from 2 to 7 business days. You'll receive tracking information once your order ships.",
+            ],
+          },
+          support: {
+            patterns: [
+              "support",
+              "help",
+              "contact",
+              "phone",
+              "email",
+              "customer service",
+            ],
+            responses: [
+              "Our customer support team is available via phone at (800) 123-4567, email at support@pharmacia.com, or through our Contact Form. We're here to help!",
+              "You can reach our customer support team Monday-Friday 8am-8pm EST at (800) 123-4567 or via email at support@pharmacia.com.",
+              "For assistance, please contact our support team at (800) 123-4567 or use the contact form on our website. We're always happy to help!",
+            ],
+          },
+          location: {
+            patterns: ["where are you", "location", "address", "headquarters"],
+            responses: [
+              "Our headquarters is located at 123 Medical Drive, Health City. We have distribution centers across the country to serve you better.",
+              "Pharmacia is headquartered at 123 Medical Drive, Health City. We have multiple locations nationwide to ensure fast delivery.",
+              "You can find us at 123 Medical Drive, Health City. We also have regional offices in major cities across the country.",
+            ],
+          },
+          certification: {
+            patterns: [
+              "certified",
+              "safe",
+              "quality",
+              "standard",
+              "approval",
+              "who",
+              "fda",
+            ],
+            responses: [
+              "Our products are WHO-certified and meet the highest quality standards. All medications undergo rigorous testing for safety and efficacy.",
+              "All Pharmacia products are manufactured in FDA-approved facilities and meet international quality standards. Your safety is our priority.",
+              "We adhere to strict quality control measures and all our products are certified by relevant health authorities including WHO and FDA.",
+            ],
+          },
+          reviews: {
+            patterns: [
+              "review",
+              "rating",
+              "testimonial",
+              "feedback",
+              "what customers say",
+            ],
+            responses: [
+              "We're proud of our 4.8/5 average rating from over 2,500 verified customers. You can read detailed reviews on our Customer Testimonials page.",
+              "Our customers consistently rate us 4.5 stars or higher for product quality and service. Check our Testimonials section to see what they're saying!",
+              "Pharmacia has received excellent feedback from our customers, with particular praise for our product quality and customer service. See our Reviews page for details.",
+            ],
+          },
+          hours: {
+            patterns: [
+              "hour",
+              "when are you open",
+              "business hour",
+              "availability",
+            ],
+            responses: [
+              "Our customer service team is available Monday to Friday, 8:00 AM to 8:00 PM EST, and Saturday, 9:00 AM to 5:00 PM EST.",
+              "We're here to help Monday-Friday 8am-8pm EST and Saturday 9am-5pm EST. Our chatbot is available 24/7 for basic inquiries.",
+              "You can reach our customer support team Monday-Friday 8am-8pm EST and Saturday 9am-5pm EST. Outside these hours, feel free to leave a message and we'll get back to you.",
+            ],
+          },
+          default: {
+            responses: [
+              "I'm not sure I understand. Could you please rephrase your question?",
+              "I apologize, but I don't have the answer to that specific question. Would you like to contact our support team for assistance?",
+              "That's an interesting question. For detailed information, I recommend contacting our support team who can help you further.",
+              "I'm still learning about all aspects of Pharmacia. For this question, our support team would be better equipped to assist you.",
+            ],
+          },
+        };
+
+        // Generate bot response based on user input
+        function generateResponse(message) {
+          const lowerMessage = message.toLowerCase();
+
+          // Check for matching patterns
+          for (const category in knowledgeBase) {
+            if (category === "default") continue;
+
+            for (const pattern of knowledgeBase[category].patterns) {
+              if (lowerMessage.includes(pattern)) {
+                const responses = knowledgeBase[category].responses;
+                return responses[Math.floor(Math.random() * responses.length)];
+              }
+            }
+          }
+
+          // Return default response if no match found
+          const defaultResponses = knowledgeBase.default.responses;
+          return defaultResponses[
+            Math.floor(Math.random() * defaultResponses.length)
+          ];
+        }
+      });
+    </script>
+  </body>
+</html>
